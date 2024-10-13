@@ -1,7 +1,10 @@
+import { editarItem } from "./editarItem.js";
+import { excluirItem } from "./excluirItem.js";
+import { verificarListaComprados } from "./verificarListaComprados.js";
+const listaDeCompras = document.getElementById("lista-de-compras");
 const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
-
-export function criarItemDaLista(item){
+export function criarItemDaLista(item) {
     const itemDaLista = document.createElement("li");
     const containerItemLista = document.createElement("div");
     containerItemLista.classList.add("lista-item-container");
@@ -32,6 +35,8 @@ export function criarItemDaLista(item){
             itemTitulo.style.textDecoration = "none";
             listaDeCompras.appendChild(itemDaLista)
         }
+
+        verificarListaComprados(listaComprados)
     })
 
     const checkboxCustomizado = document.createElement("div");
@@ -56,6 +61,10 @@ export function criarItemDaLista(item){
     imagemRemover.src = "img/delete.svg";
     imagemRemover.alt = "Remover";
 
+    botaoRemover.addEventListener("click", function(){
+        excluirItem(itemDaLista);
+    });
+
     botaoRemover.appendChild(imagemRemover);
     containerBotoes.appendChild(botaoRemover);
 
@@ -65,6 +74,10 @@ export function criarItemDaLista(item){
     const imagemEditar = document.createElement("img");
     imagemEditar.src = "img/edit.svg";
     imagemEditar.alt = "Editar";
+
+    botaoEditar.addEventListener("click", function(){
+        editarItem(itemDaLista);
+    })
 
     botaoEditar.appendChild(imagemEditar);
     containerBotoes.appendChild(botaoEditar);
