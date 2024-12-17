@@ -4,7 +4,7 @@ import { verificarListaVazia } from "./verificarListaVazia.js";
 const listaDeCompras = document.getElementById("lista-de-compras");
 const listaComprados = document.getElementById("lista-comprados");
 const excluirItem = (elemento) => {
-   let confirmacao = confirm("Tem certeza que quer deletar este item");
+   let confirmacao = confirm("Tem certeza que quer deletar este item?");
 
    if (confirmacao){
     elemento.remove();
